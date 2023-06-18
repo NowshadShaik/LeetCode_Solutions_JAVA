@@ -4,7 +4,7 @@ public class _0011_Container_With_Most_Water {
 
     public static void main(String[] args) {
         // Create an instance of the Solution class
-        Solution solution = new Solution();
+        Solution0011 solution = new Solution0011();
 
         // Test case: height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
         int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
@@ -15,7 +15,7 @@ public class _0011_Container_With_Most_Water {
     }
 }
 
-class Solution {
+class Solution0011 {
     public int maxArea(int[] height) {
         int left = 0;
         int right = height.length - 1;
