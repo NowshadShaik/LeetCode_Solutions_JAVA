@@ -1,4 +1,4 @@
-package A_Arrays_and_Strings.C_Hard;
+package B_Two_Pointers.C_Hard;
 
 public class _0042_Trapping_Rain_Water {
     public static void main(String[] args) {

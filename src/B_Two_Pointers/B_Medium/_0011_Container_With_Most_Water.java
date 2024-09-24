@@ -1,4 +1,4 @@
-package A_Arrays_and_Strings.B_Medium;
+package B_Two_Pointers.B_Medium;
 
 public class _0011_Container_With_Most_Water {
 
