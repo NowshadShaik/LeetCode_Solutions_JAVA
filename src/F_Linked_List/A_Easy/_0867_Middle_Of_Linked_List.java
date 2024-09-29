@@ -1,5 +1,7 @@
 package F_Linked_List.A_Easy;
 
+import F_Linked_List.ListNode;
+
 public class _0867_Middle_Of_Linked_List {
 
     public ListNode middleNode(ListNode head) {

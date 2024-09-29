@@ -1,6 +1,8 @@
 package F_Linked_List.A_Easy;
 
 
+import F_Linked_List.ListNode;
+
 public class _0083_Remove_Duplicates_From_Sorted_List {
 
     public ListNode deleteDuplicates(ListNode head) {

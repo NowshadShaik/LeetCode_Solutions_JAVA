@@ -1,5 +1,7 @@
 package F_Linked_List.A_Easy;
 
+import F_Linked_List.ListNode;
+
 public class _0021_Merge_Two_Sorted_lists {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

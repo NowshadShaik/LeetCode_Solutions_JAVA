@@ -1,5 +1,7 @@
 package F_Linked_List.A_Easy;
 
+import F_Linked_List.ListNode;
+
 public class _0206_Reverse_Linked_List {
 
     public ListNode reverseList(ListNode head) {

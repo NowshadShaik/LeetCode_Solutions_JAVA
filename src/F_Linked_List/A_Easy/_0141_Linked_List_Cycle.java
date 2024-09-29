@@ -1,5 +1,7 @@
 package F_Linked_List.A_Easy;
 
+import F_Linked_List.ListNode;
+
 public class _0141_Linked_List_Cycle {
 
     public boolean hasCycle(ListNode head) {
