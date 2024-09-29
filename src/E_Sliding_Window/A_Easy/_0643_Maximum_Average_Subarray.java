@@ -1,4 +1,4 @@
-package Sliding_Window.A_Easy;
+package E_Sliding_Window.A_Easy;
 
 public class _0643_Maximum_Average_Subarray {
 

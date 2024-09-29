@@ -1,4 +1,4 @@
-package Sliding_Window.B_Medium;
+package E_Sliding_Window.B_Medium;
 
 public class _0005_Longest_Palindromic_Substring {
     
