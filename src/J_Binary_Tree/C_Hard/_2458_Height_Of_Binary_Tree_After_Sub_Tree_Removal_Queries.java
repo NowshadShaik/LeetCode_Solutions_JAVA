@@ -1,4 +1,4 @@
-package J_Binary_Tree._C_Hard;
+package J_Binary_Tree.C_Hard;
 
 import J_Binary_Tree.TreeNode;
 
