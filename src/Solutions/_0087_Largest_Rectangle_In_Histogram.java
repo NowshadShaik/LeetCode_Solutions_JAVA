@@ -1,7 +1,6 @@
 package Solutions;
 
 import java.util.Stack;
-import javafx.util.Pair;
 
 public class _0087_Largest_Rectangle_In_Histogram {
 

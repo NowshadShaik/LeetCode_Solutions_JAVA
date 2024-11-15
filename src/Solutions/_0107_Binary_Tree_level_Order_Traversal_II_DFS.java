@@ -1,6 +1,7 @@
 package Solutions;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class _0107_Binary_Tree_level_Order_Traversal_II_DFS {
@@ -8,7 +9,8 @@ public class _0107_Binary_Tree_level_Order_Traversal_II_DFS {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         traverse(root, 0, res);
-        return res.reversed();
+        Collections.reverse(res);
+        return res;
     }
 
     private void traverse(TreeNode node, int depth, List<List<Integer>> res) {

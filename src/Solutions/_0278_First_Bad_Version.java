@@ -15,4 +15,13 @@ public class _0278_First_Bad_Version {
         }
         return l;
     }
+
+    /**
+     * This below method is just a placeholder
+     * @param m
+     * @return
+     */
+    private boolean isBadVersion(int m) {
+        return m % 2 == 0;
+    }
 }
