@@ -24,10 +24,4 @@ public class Pair<K, V> {
     public String toString() {
         return "Pair{" + "key=" + key + ", value=" + value + '}';
     }
-
-    public static void main(String[] args) {
-        // Example usage
-        Pair<Integer, String> pair = new Pair<>(1, "One");
-        System.out.println(pair);  // Output: Pair{key=1, value=One}
-    }
 }
