@@ -8,31 +8,33 @@ import java.util.Queue;
 public class _0621_Task_Scheduler {
 
     public int leastInterval(char[] tasks, int n) {
-        int[] count = new int[26];
-        for(char c : tasks) count[c - 'A']++;
-
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        for(int c : count) {
-            if(c > 0) maxHeap.offer(c);
-        }
-
         int time = 0;
-        Queue<int[]> queue = new LinkedList<>();
-        while(!maxHeap.isEmpty() || !queue.isEmpty()) {
+
+        int[] freq = new int[26];
+        for(char c: tasks)
+            freq[c - 'A']++;
+
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+
+        for(int i=0;i<26;i++) {
+            if(freq[i] != 0)
+                minHeap.offer(new int[] {freq[i], 1});
+        }
+
+        while(!minHeap.isEmpty()) {
             time++;
+            int[] entry = minHeap.poll();
 
-            if(maxHeap.isEmpty()) {
-                time = queue.peek()[1];
-            } else {
-                int cnt = maxHeap.poll()-1;
-                if(cnt>0)
-                    queue.add(new int[] {cnt, time + n});
-            }
+            if(time < entry[1])
+                time = entry[1];
 
-            if(!queue.isEmpty() && queue.peek()[1] == time) {
-                maxHeap.add(queue.poll()[0]);
+            entry[0]--;
+            if(entry[0] > 0) {
+                entry[1] += n+1;
+                minHeap.offer(entry);
             }
         }
+
         return time;
     }
 }
