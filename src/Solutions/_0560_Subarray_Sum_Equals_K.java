@@ -1,21 +1,23 @@
 package Solutions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class _0560_Subarray_Sum_Equals_K {
     
     class Solution {
         public int subarraySum(int[] nums, int k) {
-            int ans = 0;
-    
-            for(int i=0;i<nums.length;i++) {
-                int sum=0;
-                for(int j=i;j<nums.length;j++){
-                    sum=sum+nums[j];
-                    if(sum==k){
-                        ans++;
-                    }
-                }
+            int res = 0, currSum = 0;
+            Map<Integer, Integer> prefixSums = new HashMap<>();
+            prefixSums.put(0, 1);
+
+            for(int num : nums) {
+                currSum += num;
+                int diff = currSum - k;
+                res += prefixSums.getOrDefault(diff, 0);
+                prefixSums.put(currSum, prefixSums.getOrDefault(currSum, 0) + 1);
             }
-            return ans;
+            return res;
         }
     }
 }
