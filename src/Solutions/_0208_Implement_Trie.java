@@ -2,40 +2,48 @@ package Solutions;
 
 public class _0208_Implement_Trie {
 
-    private TrieNode root;
+    TrieNode root;
 
     public _0208_Implement_Trie() {
-        root = new TrieNode();
+        this.root = new TrieNode();
     }
 
     public void insert(String word) {
-        TrieNode cur = root;
-        for (char c : word.toCharArray()) {
-            cur.children.putIfAbsent(c, new TrieNode());
-            cur = cur.children.get(c);
+        TrieNode node = root;
+
+        for(char c : word.toCharArray()) {
+            if(node.children[c - 'a'] == null)
+                node.children[c - 'a'] = new TrieNode();
+
+            node = node.children[c - 'a'];
         }
-        cur.endOfWord = true;
+
+        node.isEnd = true;
     }
 
     public boolean search(String word) {
-        TrieNode cur = root;
-        for (char c : word.toCharArray()) {
-            if (!cur.children.containsKey(c)) {
+        TrieNode node = root;
+
+        for(char c : word.toCharArray()) {
+            if(node.children[c - 'a'] == null)
                 return false;
-            }
-            cur = cur.children.get(c);
+
+            node = node.children[c - 'a'];
         }
-        return cur.endOfWord;
+
+        return node.isEnd;
     }
 
     public boolean startsWith(String prefix) {
-        TrieNode cur = root;
-        for (char c : prefix.toCharArray()) {
-            if (!cur.children.containsKey(c)) {
+        TrieNode node = root;
+
+        for(char c : prefix.toCharArray()) {
+            if(node.children[c - 'a'] == null)
                 return false;
-            }
-            cur = cur.children.get(c);
+
+            node = node.children[c - 'a'];
         }
+
         return true;
     }
 }
