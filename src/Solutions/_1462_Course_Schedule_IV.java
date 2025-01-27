@@ -19,8 +19,6 @@ public class _1462_Course_Schedule_IV {
         for (int i = 0; i < numCourses; i++)
             dfs(i);
 
-        System.out.println(preMap);
-
         List<Boolean> res = new ArrayList<>();
         for (int[] query : queries) {
             if (preMap.get(query[1]).contains(query[0]))
