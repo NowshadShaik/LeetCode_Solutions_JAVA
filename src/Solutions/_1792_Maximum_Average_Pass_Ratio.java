@@ -5,30 +5,33 @@ import java.util.PriorityQueue;
 public class _1792_Maximum_Average_Pass_Ratio {
 
     public double maxAverageRatio(int[][] classes, int extraStudents) {
-        PriorityQueue<Pair<Integer, Double>> pq = new PriorityQueue<Pair<Integer, Double>>((a, b) -> Double.compare(b.getValue(), a.getValue()));
 
-        for(int i=0; i<classes.length; i++) {
-            pq.offer(new Pair(i, ifStudentAdded(classes[i][0], classes[i][1])));
+        PriorityQueue<double[]> maxHeap = new PriorityQueue<>((a,b) -> Double.compare(b[0], a[0]));
+
+        for(int i=0;i<classes.length;i++) {
+            double gained = gain(classes[i]);
+            maxHeap.offer(new double[] {gained, i});
         }
 
         for(int i=0;i<extraStudents;i++) {
-            Pair<Integer, Double> curr = pq.poll();
-            int c = curr.getKey();
-            classes[c][0]++;
-            classes[c][1]++;
-            pq.offer(new Pair(c, ifStudentAdded(classes[c][0], classes[c][1])));
+            double[] curr = maxHeap.poll();
+            int index = (int) curr[1];
+            classes[index][0]++;
+            classes[index][1]++;
+            curr[0] = gain(classes[index]);
+            maxHeap.offer(curr);
         }
 
-        double total = 0;
-        while(pq.size() != 0) {
-            int index = pq.poll().getKey();
-            total += ((double)classes[index][0]) / ((double)classes[index][1]);
-        }
+        double res = 0;
+        for(int[] clas: classes)
+            res += (double) clas[0]/clas[1];
 
-        return total / classes.length;
+        return res/classes.length;
     }
 
-    private double ifStudentAdded(int a, int b) {
-        return ((double)(a+1) / (double)(b + 1)) - ((double)a / (double)b);
+    private double gain(int[] clas) {
+        double p = clas[0] * 1.0;
+        double t = clas[1] * 1.0;
+        return ((p+1)/(t+1)) - (p/t);
     }
 }
